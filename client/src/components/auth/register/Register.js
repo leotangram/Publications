@@ -1,6 +1,7 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import './Register.scss'
 
 // Redux
 import { connect } from 'react-redux'
@@ -35,62 +36,63 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   // }
 
   return (
-    <Fragment>
-      <h1 className="large text-primary">Registro</h1>
-      <p className="lead">
-        <i className="fas fa-user" /> Crea tu cuenta
-      </p>
-      <form className="form" onSubmit={e => onSubmit(e)}>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            value={name}
-            onChange={e => onChange(e)}
-            // required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Email Addresposes"
-            name="email"
-            value={email}
-            onChange={e => onChange(e)}
-            // required
-          />
-          <small className="form-text">
-            Este sitio usa Gravatar, entonces si quieres usar tu imagen debes
-            usar un correo vinculado a Gravatar
-          </small>
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={e => onChange(e)}
-            // minLength="6"
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            name="password2"
-            value={password2}
-            onChange={e => onChange(e)}
-            // minLength="6"
-          />
-        </div>
-        <input type="submit" className="btn btn-primary" value="Register" />
+    <section className="register">
+      <h1 className="register__title register__text-green">Registro</h1>
+      <p className="register__text-green">Crea tu cuenta</p>
+      <form className="register__form" onSubmit={e => onSubmit(e)}>
+        <input
+          className="register__form--input"
+          type="text"
+          placeholder="Nombre"
+          name="name"
+          value={name}
+          onChange={e => onChange(e)}
+          required
+        />
+        <input
+          className="register__form--input"
+          type="email"
+          placeholder="Email Gravatar"
+          name="email"
+          value={email}
+          onChange={e => onChange(e)}
+          required
+        />
+        <small className="register__form--small-text">
+          Este sitio usa Gravatar, entonces si quieres usar tu imagen debes usar
+          un correo vinculado a Gravatar
+        </small>
+        <input
+          className="register__form--input"
+          type="password"
+          placeholder="Contraseña"
+          name="password"
+          value={password}
+          onChange={e => onChange(e)}
+          minLength="6"
+        />
+        <input
+          className="register__form--input"
+          type="password"
+          placeholder="Confirmar contraseña"
+          name="password2"
+          value={password2}
+          onChange={e => onChange(e)}
+          minLength="6"
+        />
+        <input
+          type="submit"
+          className="register__form--submit"
+          value="Register"
+        />
       </form>
-      <p className="my-1">
-        ¿Ya tienes una cuenta? <Link to="/login">¡Inicia sesión!</Link>
+      <p className="register__text-green">
+        ¿Ya tienes una cuenta?{' '}
+        <Link to="/login" className="register__link">
+          ¡Inicia sesión!
+        </Link>
       </p>
-    </Fragment>
+    </section>
   )
 }
 
