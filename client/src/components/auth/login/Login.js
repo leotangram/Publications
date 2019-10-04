@@ -29,7 +29,11 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <section>
-      <h1 className="">Iniciar sesión</h1>
+      <h1 className="large text-primary">Iniciar sesión</h1>
+      <p className="lead">
+        <i className="fas fa-user" /> Entra con tu cuenta!
+      </p>
+
       <form className="" onSubmit={e => onSubmit(e)}>
         <div className="">
           <input
@@ -54,7 +58,7 @@ const Login = ({ login, isAuthenticated }) => {
         <input type="submit" className="" value="Login" />
       </form>
       <p className="">
-        Don't have an account? <Link to="/register">Sign Up</Link>
+        ¿No tienes una cuenta? <Link to="/register">¡Regístrate!</Link>
       </p>
     </section>
   )

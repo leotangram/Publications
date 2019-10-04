@@ -5,6 +5,7 @@ import './Routes.scss'
 
 // Components
 import Login from '../components/auth/login/Login'
+import Register from '../components/auth/register/Register'
 
 const Routes = props => {
   return (
@@ -12,6 +13,7 @@ const Routes = props => {
       <Switch>
         <Route exact path="/" component={Login} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
       </Switch>
     </section>
   )
