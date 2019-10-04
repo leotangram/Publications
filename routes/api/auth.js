@@ -44,7 +44,7 @@ router.post(
       if (!user) {
         return res
           .status(400)
-          .json({ errors: [{ message: 'Invalid credentials' }] })
+          .json({ errors: [{ message: 'Credenciales inválidas' }] })
       }
 
       const isMatch = await bcrypt.compare(password, user.password)
@@ -52,7 +52,7 @@ router.post(
       if (!isMatch) {
         return res
           .status(400)
-          .json({ errors: [{ message: 'Invalid credentials' }] })
+          .json({ errors: [{ message: 'Credenciales inválidas' }] })
       }
 
       // Return jsonwebtoken: JWT

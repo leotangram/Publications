@@ -21,8 +21,13 @@
   .navbar__left {
     display: flex;
     width: 12em;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding-right: 1em;
+
+    .navbar__left--logout {
+      text-decoration: none;
+      color: white;
+    }
   }
 }

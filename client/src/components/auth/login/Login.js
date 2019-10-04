@@ -24,9 +24,9 @@ const Login = ({ login, isAuthenticated }) => {
   }
 
   // Redirect if looged in
-  // if (isAuthenticated) {
-  //   return <Redirect to="/dashboard" />
-  // }
+  if (isAuthenticated) {
+    return <Redirect to="/posts" />
+  }
 
   return (
     <section className="login">

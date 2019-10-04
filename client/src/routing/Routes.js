@@ -6,6 +6,8 @@ import PropTypes from 'prop-types'
 import Login from '../components/auth/login/Login'
 import Register from '../components/auth/register/Register'
 import Alert from '../components/layout/alert/Alert'
+import PrivateRoute from './PrivateRoute'
+import Posts from '../components/Posts/Posts'
 
 const Routes = props => {
   return (
@@ -15,6 +17,7 @@ const Routes = props => {
         <Route exact path="/" component={Login} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <PrivateRoute exact path="/posts" component={Posts} />
       </Switch>
     </section>
   )
