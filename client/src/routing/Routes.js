@@ -5,10 +5,12 @@ import PropTypes from 'prop-types'
 // Components
 import Login from '../components/auth/login/Login'
 import Register from '../components/auth/register/Register'
+import Alert from '../components/layout/alert/Alert'
 
 const Routes = props => {
   return (
     <section>
+      <Alert />
       <Switch>
         <Route exact path="/" component={Login} />
         <Route exact path="/login" component={Login} />

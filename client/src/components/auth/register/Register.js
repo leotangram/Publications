@@ -24,7 +24,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   const onSubmit = async e => {
     e.preventDefault()
     if (password !== password2) {
-      setAlert('Password do not match', 'danger')
+      setAlert('Las contraseñas no son iguales', 'danger')
     } else {
       register({ name, email, password })
     }
