@@ -6,12 +6,15 @@
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
+  position: sticky;
+  top: 68px;
 
   .post-form__form--input {
     border-radius: 5px 5px 0 0;
     border-style: none;
-    margin-bottom: 1em;
-    padding: 1em 2em;
+    color: rgba(44, 205, 111, 1);
+    font-size: 2em;
+    padding: 0.5em 1em 0.5em 1em;
     outline: none;
   }
 
@@ -32,4 +35,8 @@
       border-radius: 5px;
     }
   }
+}
+
+::placeholder {
+  color: rgba(44, 205, 111, 1);
 }
