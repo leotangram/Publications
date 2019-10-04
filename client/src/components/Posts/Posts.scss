@@ -1,0 +1,19 @@
+.posts {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 68px);
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 700px;
+  padding-top: 68px;
+  width: 100%;
+
+  .posts__text-green {
+    color: rgba(44, 205, 111, 1);
+  }
+
+  .posts__title {
+    font-size: 2em;
+  }
+}

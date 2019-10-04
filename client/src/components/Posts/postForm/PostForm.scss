@@ -1,0 +1,35 @@
+.post-form {
+  background-color: white;
+  border: solid 1px gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+
+  .post-form__form--input {
+    border-radius: 5px 5px 0 0;
+    border-style: none;
+    margin-bottom: 1em;
+    padding: 1em 2em;
+    outline: none;
+  }
+
+  .post-form__form--submit-container {
+    width: 100%;
+    border-top: 1px gray solid;
+    display: flex;
+    justify-content: flex-end;
+
+    .post-form__form--submit {
+      background-color: rgba(44, 205, 111, 1);
+      border: none;
+      color: white;
+      padding: 10px 32px;
+      text-decoration: none;
+      margin: 6px 6px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  }
+}

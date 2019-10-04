@@ -7,7 +7,7 @@ import Login from '../components/auth/login/Login'
 import Register from '../components/auth/register/Register'
 import Alert from '../components/layout/alert/Alert'
 import PrivateRoute from './PrivateRoute'
-import Posts from '../components/Posts/Posts'
+import Posts from '../components/posts/Posts'
 
 const Routes = props => {
   return (

@@ -1,14 +1,50 @@
-import React from 'react'
+import React, { Fragment, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import './Posts.scss'
 
-const Posts = props => {
+// Redux
+import { connect } from 'react-redux'
+import { getPosts } from '../../actions/post'
+
+// Components
+import Spinner from '../layout/spinner/Spinner'
+import PostItem from './postItem/PostItem'
+import PostForm from './postForm/PostForm'
+
+const Posts = ({ getPosts, post: { posts, loading } }) => {
+  useEffect(() => {
+    getPosts()
+  }, [getPosts])
   return (
-    <div>
-      <h1>Posts</h1>
-    </div>
+    <section className="posts">
+      {loading ? (
+        <Spinner />
+      ) : (
+        <Fragment>
+          <h1 className="posts__title posts__text-green">Publicaciones</h1>
+          <p className="posts__text-green">¡Bienvenido!</p>
+          <PostForm />
+          <div className="posts">
+            {posts.map(post => (
+              <PostItem key={post._id} post={post} />
+            ))}
+          </div>
+        </Fragment>
+      )}
+    </section>
   )
 }
 
-Posts.propTypes = {}
+Posts.propTypes = {
+  getPosts: PropTypes.func.isRequired,
+  post: PropTypes.bool.isRequired
+}
 
-export default Posts
+const mapStateToProps = state => ({
+  post: state.post
+})
+
+export default connect(
+  mapStateToProps,
+  { getPosts }
+)(Posts)
