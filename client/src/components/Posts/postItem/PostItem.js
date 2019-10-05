@@ -16,6 +16,8 @@ const PostItem = ({
   auth,
   post: { _id, text, name, avatar, user, likes, comments, date }
 }) => {
+  console.log(blues)
+
   const [reaction, setReaction] = useState(false)
   return (
     <div className="post__container">
