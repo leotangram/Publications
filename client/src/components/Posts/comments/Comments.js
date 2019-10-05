@@ -7,8 +7,6 @@ import Comment from '../comment/Comment'
 import CommentForm from '../commentForm/CommentForm'
 
 const Comments = ({ post }) => {
-  console.log(post)
-
   return (
     <section className="comments__container">
       <div className="comments">
@@ -22,6 +20,8 @@ const Comments = ({ post }) => {
   )
 }
 
-Comments.propTypes = {}
+Comments.propTypes = {
+  post: PropTypes.object.isRequired
+}
 
 export default Comments
