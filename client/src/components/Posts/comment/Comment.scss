@@ -1,0 +1,43 @@
+.comment {
+  display: flex;
+  margin-bottom: 2em;
+  position: relative;
+
+  .comment__avatar {
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+  }
+  .comment__content {
+    margin-left: 2em;
+    display: flex;
+
+    .comment__name {
+      margin: 0;
+      color: rgba(44, 205, 111, 1);
+    }
+    .comment__date {
+      color: gray;
+      text-transform: capitalize;
+    }
+    .post__capitalize::first-letter {
+      text-transform: capitalize;
+    }
+    .comment__text {
+      margin: 0;
+    }
+    .comment__content--button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 59px;
+
+      .comment__content--button-remove {
+        color: rgba(233, 99, 95, 1);
+        font-size: 1.5em;
+      }
+    }
+  }
+}

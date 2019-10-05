@@ -1,0 +1,40 @@
+.comment-form {
+  background-color: white;
+  border: solid 1px gray;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 2em;
+  width: 100%;
+
+  .comment-form__form--input {
+    border-radius: 5px 5px 0 0;
+    border-style: none;
+    color: rgba(44, 205, 111, 1);
+    font-size: 1.5em;
+    padding: 0.5em 1em 0.5em 1em;
+    outline: none;
+  }
+  .comment-form__form--submit-container {
+    border-top: 1px gray solid;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    .comment-form__form--submit {
+      background-color: rgba(44, 205, 111, 1);
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      padding: 10px 32px;
+      text-decoration: none;
+      margin: 6px 6px;
+    }
+  }
+}
+
+::placeholder {
+  color: rgba(44, 205, 111, 1);
+}

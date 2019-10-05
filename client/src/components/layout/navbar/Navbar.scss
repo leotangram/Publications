@@ -1,0 +1,30 @@
+.navbar {
+  background-color: rgba(73, 78, 83, 1);
+  position: sticky;
+  top: 0;
+  color: white;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: space-between;
+
+  .navbar__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1em;
+  }
+
+  .navbar__left {
+    display: flex;
+    width: 12em;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 1em;
+
+    .navbar__left--logout {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
