@@ -21,10 +21,9 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
         <Spinner />
       ) : (
         <Fragment>
-          <h1 className="posts__title posts__text-green">Publicaciones</h1>
-          <p className="posts__text-green">¡Bienvenido!</p>
+          <h1 className="posts__title posts__text-green">¡Bienvenido!</h1>
           <PostForm />
-          <div className="posts">
+          <div className="posts__post">
             {posts.map(post => (
               <PostItem key={post._id} post={post} />
             ))}

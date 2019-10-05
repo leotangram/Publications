@@ -120,6 +120,73 @@ router.put('/like/:id', auth, async (req, res) => {
   }
 })
 
+// @route   PUT api/posts/blue/:id
+// @desc    Blue a post
+// @access  Private
+router.put('/blue/:id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id)
+
+    // Check if the post has already been blued
+    if (
+      post.blues.filter(blue => blue.user.toString() === req.user.id).length > 0
+    ) {
+      return res.status(400).json({ message: 'Post already blued' })
+    }
+    post.blues.unshift({ user: req.user.id })
+    await post.save()
+    res.json(post.blues)
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).send('Server error')
+  }
+})
+
+// @route   PUT api/posts/red/:id
+// @desc    Red a post
+// @access  Private
+router.put('/red/:id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id)
+
+    // Check if the post has already been reded
+    if (
+      post.reds.filter(red => red.user.toString() === req.user.id).length > 0
+    ) {
+      return res.status(400).json({ message: 'Post already reded' })
+    }
+    post.reds.unshift({ user: req.user.id })
+    await post.save()
+    res.json(post.reds)
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).send('Server error')
+  }
+})
+
+// @route   PUT api/posts/yellow/:id
+// @desc    Yellow a post
+// @access  Private
+router.put('/yellow/:id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id)
+
+    // Check if the post has already been yellowed
+    if (
+      post.yellows.filter(yellow => yellow.user.toString() === req.user.id)
+        .length > 0
+    ) {
+      return res.status(400).json({ message: 'Post already yellowed' })
+    }
+    post.yellows.unshift({ user: req.user.id })
+    await post.save()
+    res.json(post.yellows)
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).send('Server error')
+  }
+})
+
 // @route   PUT api/posts/unlike/:id
 // @desc    Like a post
 // @access  Private
@@ -143,6 +210,92 @@ router.put('/unlike/:id', auth, async (req, res) => {
 
     await post.save()
     res.json(post.likes)
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).send('Server error')
+  }
+})
+
+// @route   PUT api/posts/unblue/:id
+// @desc    Blue a post
+// @access  Private
+router.put('/unblue/:id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id)
+
+    // Check if the post has already been blued
+    if (
+      post.blues.filter(blue => blue.user.toString() === req.user.id).length ===
+      0
+    ) {
+      return res.status(400).json({ message: 'Post has not yet been blued' })
+    }
+    // Get removed index
+    const removeIndex = post.blues
+      .map(blue => blue.user.toString())
+      .indexOf(req.user.id)
+
+    post.blues.splice(removeIndex, 1)
+
+    await post.save()
+    res.json(post.blues)
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).send('Server error')
+  }
+})
+
+// @route   PUT api/posts/unred/:id
+// @desc    Red a post
+// @access  Private
+router.put('/unred/:id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id)
+
+    // Check if the post has already been reded
+    if (
+      post.reds.filter(red => red.user.toString() === req.user.id).length === 0
+    ) {
+      return res.status(400).json({ message: 'Post has not yet been reded' })
+    }
+    // Get removed index
+    const removeIndex = post.reds
+      .map(red => red.user.toString())
+      .indexOf(req.user.id)
+
+    post.reds.splice(removeIndex, 1)
+
+    await post.save()
+    res.json(post.reds)
+  } catch (error) {
+    console.error(error.message)
+    res.status(500).send('Server error')
+  }
+})
+
+// @route   PUT api/posts/unyellow/:id
+// @desc    Yellow a post
+// @access  Private
+router.put('/unyellow/:id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id)
+
+    // Check if the post has already been yellowed
+    if (
+      post.yellows.filter(yellow => yellow.user.toString() === req.user.id)
+        .length === 0
+    ) {
+      return res.status(400).json({ message: 'Post has not yet been yellowed' })
+    }
+    // Get removed index
+    const removeIndex = post.yellows
+      .map(yellow => yellow.user.toString())
+      .indexOf(req.user.id)
+
+    post.yellows.splice(removeIndex, 1)
+
+    await post.save()
+    res.json(post.yellows)
   } catch (error) {
     console.error(error.message)
     res.status(500).send('Server error')
