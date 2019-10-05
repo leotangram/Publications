@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
 // Components
 import Login from '../components/auth/login/Login'
@@ -8,8 +7,9 @@ import Register from '../components/auth/register/Register'
 import Alert from '../components/layout/alert/Alert'
 import PrivateRoute from './PrivateRoute'
 import Posts from '../components/posts/Posts'
+import NotFound from '../components/layout/notFound/NotFound'
 
-const Routes = props => {
+const Routes = () => {
   return (
     <section>
       <Alert />
@@ -18,11 +18,10 @@ const Routes = props => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <PrivateRoute exact path="/posts" component={Posts} />
+        <Route component={NotFound} />
       </Switch>
     </section>
   )
 }
-
-Routes.propTypes = {}
 
 export default Routes
