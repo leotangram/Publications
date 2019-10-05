@@ -8,9 +8,10 @@ La aplicación se encuentra desplegada en Heroku, entonces probablemente dure un
 
 * Link: https://secret-brook-24157.herokuapp.com/
 
-* Para usar la aplicación por favor clonar este repositorio `git clone https://github.com/leotangram/Publications.git`
 
 ## Instalación de dependencias
+
+* clonar este repositorio `git clone https://github.com/leotangram/Publications.git`
 
 En la terminal insertar el siguiente comando en la raíz del proyecto:
  * Con npm `npm i` o `npm install`
