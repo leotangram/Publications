@@ -1,0 +1,33 @@
+.comment {
+  display: flex;
+
+  .comment__avatar {
+    border-radius: 50%;
+    width: 3.5em;
+    height: 3.5em;
+  }
+  .comment__content {
+    margin-left: 2em;
+
+    .comment__name {
+      margin: 0;
+      color: rgba(44, 205, 111, 1);
+    }
+    .comment__date {
+      color: gray;
+      text-transform: capitalize;
+    }
+    .post__capitalize::first-letter {
+      text-transform: capitalize;
+    }
+    .comment__content--button {
+      border: none;
+      background-color: transparent;
+
+      .comment__content--button-remove {
+        color: rgba(233, 99, 95, 1);
+        font-size: 2em;
+      }
+    }
+  }
+}

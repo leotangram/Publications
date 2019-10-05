@@ -1,8 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import Moment from 'react-moment'
+import './Comment.scss'
+
+// Redux
+import { connect } from 'react-redux'
 import { deleteComment } from '../../../actions/post'
 
 const Comment = ({
@@ -14,25 +16,23 @@ const Comment = ({
   console.log(_id, postId)
 
   return (
-    <div className="post bg-white p-1 my-1">
-      <div>
-        <Link to={`/profile/${user}`}>
-          <img className="round-img" src={avatar} alt="" />
-          <h4>{name}</h4>
-        </Link>
-      </div>
-      <div>
-        <p className="my-1">{text}</p>
-        <p className="post-date">
-          Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
-        </p>
+    <div className="comment">
+      <img className="comment__avatar" src={avatar} alt="" />
+      <div className="comment__content">
+        <h3 className="comment__name">{name}</h3>
+        <small className="comment__date">
+          <Moment fromNow globallocale={'es'}>
+            {date}
+          </Moment>
+        </small>
+        <p className="comment__capitalize">{text}</p>
         {!auth.loading && user === auth.user._id && (
           <button
             onClick={e => deleteComment(postId, _id)}
             type="button"
-            className="btn btn-danger"
+            className="comment__content--button"
           >
-            <i className="fas fa-times" />
+            <i className="fas fa-times comment__content--button-remove" />
           </button>
         )}
       </div>
