@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://leotangramPublications:peaZbSh5zdSnv9s@publications-kkc8n.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
+}

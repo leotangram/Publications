@@ -8,6 +8,7 @@ import Register from '../components/auth/register/Register'
 import Alert from '../components/layout/alert/Alert'
 import PrivateRoute from './PrivateRoute'
 import Posts from '../components/posts/Posts'
+import NotFound from '../components/layout/notFound/NotFound'
 
 const Routes = props => {
   return (
@@ -18,6 +19,7 @@ const Routes = props => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <PrivateRoute exact path="/posts" component={Posts} />
+        <Route component={NotFound} />
       </Switch>
     </section>
   )
