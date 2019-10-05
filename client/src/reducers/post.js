@@ -6,13 +6,11 @@ import {
   ADD_POST,
   GET_POST,
   ADD_COMMENT,
-  REMOVE_COMMENT,
-  UPDATE_BLUES
+  REMOVE_COMMENT
 } from '../actions/types'
 
 const initialState = {
   posts: [],
-  post: null,
   loading: true,
   error: {}
 }
@@ -62,18 +60,28 @@ export default function(state = initialState, action) {
     case ADD_COMMENT:
       return {
         ...state,
-        post: { ...state.post, comments: payload },
+        posts: state.posts.map(post => {
+          if (post._id === payload.postId) {
+            return (post = { ...post, comments: payload.data })
+          } else {
+            return { ...post }
+          }
+        }),
+        // posts: { ...state.post, comments: payload },
         loading: false
       }
     case REMOVE_COMMENT:
       return {
         ...state,
-        post: {
-          ...state.post,
-          comments: state.post.comments.filter(
-            comment => comment._id !== payload
-          )
-        },
+        posts: state.posts.map(
+          post =>
+            (post = {
+              ...post,
+              comments: post.comments.filter(
+                comment => comment._id !== payload.commentId
+              )
+            })
+        ),
         loading: false
       }
     default:

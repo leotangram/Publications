@@ -10,6 +10,7 @@ import { getPosts } from '../../actions/post'
 import Spinner from '../layout/spinner/Spinner'
 import PostItem from './postItem/PostItem'
 import PostForm from './postForm/PostForm'
+import Comments from './comments/Comments'
 
 const Posts = ({ getPosts, post: { posts, loading } }) => {
   useEffect(() => {
@@ -24,9 +25,13 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
           <h1 className="posts__title posts__text-green">¡Bienvenido!</h1>
           <PostForm />
           <div className="posts__post">
-            {posts.map(post => (
-              <PostItem key={post._id} post={post} />
-            ))}
+            {posts &&
+              posts.map(post => (
+                <div className="posts__post--posts" key={post._id}>
+                  <PostItem post={post} />
+                  <Comments post={post} />
+                </div>
+              ))}
           </div>
         </Fragment>
       )}
@@ -36,7 +41,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
 
 Posts.propTypes = {
   getPosts: PropTypes.func.isRequired,
-  post: PropTypes.bool.isRequired
+  post: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

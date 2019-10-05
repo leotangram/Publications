@@ -8,8 +8,7 @@ import {
   ADD_POST,
   GET_POST,
   ADD_COMMENT,
-  REMOVE_COMMENT,
-  UPDATE_BLUES
+  REMOVE_COMMENT
 } from './types'
 
 // Get posts
@@ -146,9 +145,10 @@ export const addComment = (postId, formData) => async dispatch => {
       formData,
       config
     )
+    const data = res.data
     dispatch({
       type: ADD_COMMENT,
-      payload: res.data
+      payload: { postId, data }
     })
     dispatch(setAlert('Comment added', 'success'))
   } catch (error) {
@@ -165,10 +165,10 @@ export const addComment = (postId, formData) => async dispatch => {
 // Delete comment
 export const deleteComment = (postId, commentId) => async dispatch => {
   try {
-    const res = await axios.delete(`/api/posts/comment/${postId}/${commentId}`)
+    await axios.delete(`/api/posts/comment/${postId}/${commentId}`)
     dispatch({
       type: REMOVE_COMMENT,
-      payload: commentId
+      payload: { postId, commentId }
     })
     dispatch(setAlert('Comment removed', 'success'))
   } catch (error) {

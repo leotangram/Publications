@@ -11,7 +11,7 @@ const PostForm = ({ addPost }) => {
 
   return (
     <form
-      class="post-form"
+      className="post-form"
       onSubmit={e => {
         e.preventDefault()
         addPost({ text })
@@ -27,7 +27,11 @@ const PostForm = ({ addPost }) => {
         required
       />
       <div className="post-form__form--submit-container">
-        <input type="submit" class="post-form__form--submit" value="Submit" />
+        <input
+          type="submit"
+          className="post-form__form--submit"
+          value="Submit"
+        />
       </div>
     </form>
   )

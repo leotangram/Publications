@@ -1,8 +1,7 @@
 .post__container {
   background-color: white;
   border: solid 1px gray;
-  border-radius: 5px;
-  margin-bottom: 2em;
+  border-radius: 5px 5px 0 0;
   width: 100%;
 
   .post {
@@ -30,6 +29,21 @@
       }
       .post__content--button {
         border: none;
+
+        .post__content--button-like {
+          color: rgba(84, 141, 238, 1);
+          font-size: 2em;
+        }
+
+        .post__content--button-dislike {
+          color: rgba(232, 199, 76, 1);
+          font-size: 2em;
+        }
+
+        .post__content--button-remove {
+          color: rgba(233, 99, 95, 1);
+          font-size: 2em;
+        }
       }
     }
   }
