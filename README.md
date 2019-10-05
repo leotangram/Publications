@@ -2,6 +2,12 @@
 
 En esta app se pueden agregar publicaciones, y comentarios a estas.
 
+## Ver la aplicación desplegada
+
+La aplicación se encuentra desplegada en Heroku, entonces probablemente dure un tiempo en correr, ya que según Heroku después de cierto tiempo en la que no se use la App, esta se dormirá :D
+
+* Link: https://secret-brook-24157.herokuapp.com/
+
 * Para usar la aplicación por favor clonar este repositorio `git clone https://github.com/leotangram/Publications.git`
 
 ## Instalación de dependencias
