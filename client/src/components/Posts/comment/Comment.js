@@ -13,19 +13,20 @@ const Comment = ({
   auth,
   deleteComment
 }) => {
-  console.log(_id, postId)
-
+  const firstName = name.replace(/ .*/, '')
   return (
     <div className="comment">
       <img className="comment__avatar" src={avatar} alt="" />
       <div className="comment__content">
-        <h3 className="comment__name">{name}</h3>
-        <small className="comment__date">
-          <Moment fromNow globallocale={'es'}>
-            {date}
-          </Moment>
-        </small>
-        <p className="comment__capitalize">{text}</p>
+        <div>
+          <h4 className="comment__name">{firstName}</h4>
+          <small className="comment__date">
+            <Moment fromNow globallocale={'es'}>
+              {date}
+            </Moment>
+          </small>
+        </div>
+        <p className="comment__capitalize comment__text">{text}</p>
         {!auth.loading && user === auth.user._id && (
           <button
             onClick={e => deleteComment(postId, _id)}

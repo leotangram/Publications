@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Moment from 'react-moment'
+import 'moment/locale/es'
 import './PostItem.scss'
 
 // Redux
